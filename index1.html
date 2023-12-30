@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Поздравление</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6a5acd; /* Тёмно-синий цвет фона */
+            color: #fff; /* Белый цвет текста для контраста */
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #483d8b; /* Тёмный сливовый цвет контейнера */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            border-radius: 20px; /* Добавляем закругление к контейнеру */
+        }
+        /* Остальные стили остаются без изменений */
+
+        .greeting {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .message {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .footer {
+            font-size: 18px; /* Увеличиваем размер шрифта */
+            color: #dcdcdc; /* Светлый оттенок серого для лучшей видимости на тёмном фоне */
+            margin-top: 20px;
+            padding: 10px; /* Добавляем немного внутреннего отступа */
+            text-shadow: 1px 1px 2px #000; /* Небольшая тень для текста, чтобы он выделялся */
+        }
+
+        @keyframes fall {
+            0% { top: -100px; }
+            100% { top: 100vh; }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .snowflake {
+            position: fixed;
+            top: -100px;
+            z-index: 9999;
+            opacity: 0.8;
+            animation-name: fall;
+            animation-timing-function: linear;
+        }
+        .snowflake img {
+            animation-name: spin;
+            animation-duration: 6s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        #snowButton {
+            background-color: #a3d8f4;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+            transition: background-color 0.3s;
+        }
+        #snowButton:hover {
+            background-color: #92cfe1; /* Темнее при наведении */
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes burningEffect {
+            0%, 100% {
+                color: #ff6f61; /* Оранжевый цвет для эффекта пламени */
+                text-shadow: 0 0 10px #ff9f00, 0 0 20px #ff6f00, 0 0 30px #ff3f00, 0 0 40px #ff2f00, 0 0 70px #ff7f00;
+                transform: translateY(0);
+            }
+            50% {
+                color: #ffd700; /* Золотистый цвет для вариации эффекта */
+                text-shadow: 0 0 15px #ffbf00, 0 0 25px #ff9f00, 0 0 35px #ff7f00, 0 0 45px #ff5f00, 0 0 75px #ff9f00;
+                transform: translateY(-2px);
+            }
+        }
+
+        .greeting, .message {
+            opacity: 0;
+            animation-name: fadeIn, burningEffect;
+            animation-duration: 2s, 3s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: 1, infinite;
+            animation-delay: 0.5s, 0s; /* Задержка только для fadeIn */
+        }
+
+        .greeting {
+            animation-delay: 0.5s, 0s; /* Задержка появления заголовка для fadeIn */
+        }
+
+        .message {
+            animation-delay: 1.5s, 0s; /* Задержка появления абзаца для fadeIn */
+        }
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ffeb3b, 0 0 20px #ffeb3b, 0 0 25px #ffeb3b, 0 0 30px #ffeb3b, 0 0 35px #ffeb3b;
+            }
+            50% {
+                box-shadow: 0 0 10px #fff, 0 0 20px #ffec70, 0 0 30px #ffec70, 0 0 40px #ffec70, 0 0 50px #ffec70, 0 0 60px #ffec70, 0 0 70px #ffec70;
+            }
+        }
+
+        .family-photo {
+            width: 300px; /* Увеличенный размер фото */
+            margin: 20px auto;
+            display: block;
+            border-radius: 15px; /* Слегка закругленные углы */
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes melt {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="greeting">С Новым годом, Настя</h1>
+        <p class="message">Пусть этот год принесет нам много нового, с тобой всегда так приятно находиться, словами не пердать, 2023 был хорошим годом потому что мы начали встречаться с тобой, но я уверен что 2024 будет еще лучше Люблю тебя котейка. С любовью, [Паша].</p>
+        <br><br>
+        <img src="zP1f1I41fG0.jpg" alt="Я с настей" class="family-photo">
+        <div class="footer">От всего сердца, [Паша]</div>
+        <button id="snowButton">Начать снегопад</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const photoTop = document.querySelector('.family-photo').getBoundingClientRect().top;
+
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 5 + 3 + 's'; // Случайная длительность анимации
+                const size = Math.random() * 50 + 20; // Размер от 20px до 70px
+                snowflake.innerHTML = '<img src="anim.png" alt="Снежинка" style="width: ' + size + 'px; height: ' + size + 'px;">';
+
+                document.body.appendChild(snowflake);   
+
+                snowflake.addEventListener('animationend', function() {
+                    // Начало анимации таяния, если снежинка достигла вершины фотографии
+                    if (snowflake.getBoundingClientRect().top >= photoTop) {
+                        snowflake.style.animation = 'melt 3s forwards';
+                    }
+
+                    setTimeout(() => {
+                        snowflake.remove();
+                    }, 3000);
+                });
+            }
+
+            let snowing = false;
+            let snowInterval;
+
+            document.getElementById('snowButton').addEventListener('click', function() {
+                if (!snowing) {
+                    snowInterval = setInterval(createSnowflake, 100);
+                    this.textContent = "Остановить снегопад";
+                } else {
+                    clearInterval(snowInterval);
+                    this.textContent = "Начать снегопад";
+                }
+                snowing = !snowing;
+            });
+        });
+    </script>
+</body>
+</html>
